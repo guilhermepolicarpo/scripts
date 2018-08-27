@@ -3,7 +3,7 @@ Script em javascrip(jquery) para alterar um código de barras.
 O Script retira os hifens do código de barras e ao clicar no botão "Copiar" o novo código é copiado para o clipboard e os inputs são limpados.
 
 
-Utilizado na página / Used on page::
+Utilizado na página / Used on page:
 -Bootstrap
 -Jquery
 
