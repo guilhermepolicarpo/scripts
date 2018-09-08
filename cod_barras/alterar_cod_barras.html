@@ -30,7 +30,7 @@
               <input type="text" class="form-control" id="cod_barras" placeholder="Digite o Código de Barras">
             </div>
             <div class="form-group">
-              <input id="cod_atualizado">
+              <input id="cod_atualizado" readonly="true">
             </div>          	
           </form>
           <button id="copiar" type="button" class="btn btn-primary">Copiar</button>
@@ -51,7 +51,7 @@
     		$("#cod_barras").keyup(function()
     		{
 				var str = $("#cod_barras").val();
-				var res = str.replace(/-/g, "");
+				var res = str.replace(/[^\d]+/g, "");
 
 				$("#cod_atualizado").val(res);
 			});
