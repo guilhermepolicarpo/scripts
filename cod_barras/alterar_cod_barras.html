@@ -16,15 +16,17 @@
     		border: none;
     		width: 100%;
     	}
-
     </style>
   </head>
   <body>
 
     <div class="container">
-      <div class="row">
+      <div class="row mt-5">
         <div class="col-md-12">
           <h1>Alterar Linha Digitável de Boletos</h1>
+          <hr>
+        </div>
+        <div class="col-md-10">
           <form>
             <div class="form-group">
               <input type="text" class="form-control" id="cod_barras" placeholder="Digite a Linha Digitável">
@@ -33,6 +35,8 @@
               <input id="cod_atualizado" readonly="true">
             </div>          	
           </form>
+        </div>
+        <div class="col-md-2">
           <button id="copiar" type="button" class="btn btn-primary">Copiar</button>
         </div>
       </div>
@@ -48,23 +52,22 @@
 
     	$(function()
     	{
-    		$("#cod_barras").keyup(function()
-    		{
-				var str = $("#cod_barras").val();
-				var res = str.replace(/[^\d]+/g, "");
+        $(this).bind('input propertychange', function() {
+          var str = $("#cod_barras").val();
+          var res = str.replace(/[^\d]+/g, "");
 
-				$("#cod_atualizado").val(res);
-			});
+          $("#cod_atualizado").val(res);
+        });    	
 
-			$("#copiar").click(function()
-			{
-				$("#cod_atualizado").select();
-				document.execCommand('copy');
-				$("#cod_barras").val("");
-				$("#cod_atualizado").val("");
-				$("#cod_barras").focus();
+        $("#copiar").click(function()
+        {
+          $("#cod_atualizado").select();
+          document.execCommand('copy');
+          $("#cod_barras").val("");
+          $("#cod_atualizado").val("");
+          $("#cod_barras").focus();
 
-			});
+        });
     	})
 
     </script>
